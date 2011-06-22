@@ -1,0 +1,31 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:gs="http://namespaces.zope.org/genericsetup"
+    xmlns:five="http://namespaces.zope.org/five">
+
+  <include package="Products.GenericSetup" />
+  <include package="plone.app.registry" />
+
+  <!-- event handlers for updating link integrity references -->
+
+  <subscriber
+    for="Products.Archetypes.interfaces.IBaseObject
+         zope.app.container.interfaces.IObjectRemovedEvent" 
+    handler=".handlers.referencedObjectRemoved" />
+
+  <subscriber
+    for="Products.Archetypes.interfaces.IReference
+         zope.app.container.interfaces.IObjectRemovedEvent" 
+    handler=".handlers.referenceRemoved" />
+
+    <gs:registerProfile
+        name="default"
+        directory="profiles/default"
+        title="Reference integrity"
+        description="Protects reference integrity with Link integrity UI"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+
+</configure>

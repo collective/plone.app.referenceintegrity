@@ -1,0 +1,3 @@
+- use plone.registry to configure which reference type should be guarded
+- add javascript in urban to trigger overlays when deleting
+
