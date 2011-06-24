@@ -1,0 +1,1 @@
+add a buildout to run the tests
