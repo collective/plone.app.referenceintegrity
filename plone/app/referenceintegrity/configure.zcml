@@ -11,11 +11,6 @@
   <!-- event handlers for updating link integrity references -->
 
   <subscriber
-    for="Products.Archetypes.interfaces.IBaseObject
-         zope.app.container.interfaces.IObjectRemovedEvent" 
-    handler=".handlers.referencedObjectRemoved" />
-
-  <subscriber
     for="Products.Archetypes.interfaces.IReference
          zope.app.container.interfaces.IObjectRemovedEvent" 
     handler=".handlers.referenceRemoved" />
