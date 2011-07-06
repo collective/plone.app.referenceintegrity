@@ -23,8 +23,8 @@ setup(name='plone.app.referenceintegrity',
       include_package_data=True,
       zip_safe=False,
       install_requires=[
-          'setuptools',
-          # -*- Extra requirements: -*-
+          'Plone',
+          'plone.app.linkintegrity',
           'plone.app.registry',
       ],
       entry_points="""
