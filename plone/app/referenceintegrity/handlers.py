@@ -4,8 +4,6 @@ from plone.registry.interfaces import IRegistry
 
 from Acquisition import aq_get
 from Products.Archetypes.interfaces import IReference
-from plone.app.linkintegrity.exceptions import (
-    LinkIntegrityNotificationException)
 from plone.app.linkintegrity.interfaces import ILinkIntegrityInfo
 from plone.app.referenceintegrity.interfaces import ISettings
 
