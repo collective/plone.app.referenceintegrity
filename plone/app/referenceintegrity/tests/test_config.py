@@ -7,8 +7,7 @@ from plone.app.referenceintegrity.testing import (
         INTEGRATION_REFERENCE_INTEGRITY)
 from plone.app.referenceintegrity.config import set_protected_relationships
 from plone.app.referenceintegrity.config import get_protected_relationships
-from plone.app.referenceintegrity.config import (
-        DisableRelationshipsProtectionTemporarily)
+from plone.app.referenceintegrity.config import DisabledProtection
 
 
 class DisableRelationshipsProtectionTestCase(unittest.TestCase):
@@ -21,6 +20,6 @@ class DisableRelationshipsProtectionTestCase(unittest.TestCase):
 
         set_protected_relationships(PROTECTED)
 
-        with DisableRelationshipsProtectionTemporarily(PROTECTED):
+        with DisabledProtection(PROTECTED):
             self.assertEquals(get_protected_relationships(), [])
         self.assertEquals(get_protected_relationships(), PROTECTED)

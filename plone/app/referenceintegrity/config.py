@@ -23,7 +23,7 @@ def set_protected_relationships(reference_types):
     settings.reference_types = encoded
 
 
-class DisableRelationshipsProtectionTemporarily(object):
+class DisabledProtection(object):
 
     def __init__(self, reference_types):
         self.reference_types = reference_types
