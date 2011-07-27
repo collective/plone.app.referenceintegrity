@@ -10,11 +10,18 @@ from plone.app.referenceintegrity.config import get_protected_relationships
 from plone.app.referenceintegrity.config import DisabledProtection
 
 
-class DisableRelationshipsProtectionTestCase(unittest.TestCase):
+class ConfigTestCase(unittest.TestCase):
 
     layer = INTEGRATION_REFERENCE_INTEGRITY
 
-    def test_raise_ILinkIntegrityInfo(self):
+    def test_config(self):
+
+        PROTECTED = [relatedItemsField.relationship]
+
+        set_protected_relationships(PROTECTED)
+        self.assertEquals(get_protected_relationships(), PROTECTED)
+
+    def test_context_manager(self):
 
         PROTECTED = [relatedItemsField.relationship]
 
