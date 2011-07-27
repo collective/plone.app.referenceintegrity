@@ -7,7 +7,7 @@ from plone.app.linkintegrity.exceptions import (
 
 from plone.app.referenceintegrity.testing import (
         INTEGRATION_REFERENCE_INTEGRITY)
-from plone.app.referenceintegrity.handlers import set_protected_relationships
+from plone.app.referenceintegrity.config import set_protected_relationships
 
 from plone.app.testing import TEST_USER_NAME
 from plone.app.testing import TEST_USER_ID

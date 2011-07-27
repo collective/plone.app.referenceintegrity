@@ -1,28 +1,8 @@
-from zope.component import queryUtility
-from zope.component import getUtility
-from plone.registry.interfaces import IRegistry
-
 from Acquisition import aq_get
 from Products.Archetypes.interfaces import IReference
+
 from plone.app.linkintegrity.interfaces import ILinkIntegrityInfo
-from plone.app.referenceintegrity.interfaces import ISettings
-
-
-def get_protected_relationships():
-    registry = queryUtility(IRegistry)
-    if registry is None:
-        return []
-    settings = registry.forInterface(ISettings, check=False)
-    return settings.reference_types
-
-
-def set_protected_relationships(reference_types):
-    registry = getUtility(IRegistry)
-    settings = registry.forInterface(ISettings, check=False)
-    encoded = [ref_type if isinstance(ref_type, unicode)
-            else unicode(ref_type, 'utf8')
-            for ref_type in reference_types]
-    settings.reference_types = encoded
+from plone.app.referenceintegrity.config import get_protected_relationships
 
 
 def referenceRemoved(obj, event):
