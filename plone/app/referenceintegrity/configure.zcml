@@ -24,4 +24,15 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
 
+  <!-- vocabulary integrity support -->
+  <subscriber
+    for="Products.Archetypes.interfaces.IBaseObject
+         zope.lifecycleevent.interfaces.IObjectCreatedEvent"
+    handler=".vocabularies.modifiedArchetype" />
+
+  <subscriber
+    for="Products.Archetypes.interfaces.IBaseObject
+         zope.lifecycleevent.interfaces.IObjectModifiedEvent"
+    handler=".vocabularies.modifiedArchetype" />
+
 </configure>
