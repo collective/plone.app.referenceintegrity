@@ -11,7 +11,8 @@ def get_protected_relationships():
     if registry is None:
         return []
     settings = registry.forInterface(ISettings, check=False)
-    return settings.reference_types
+    result = [str(ref_type) for ref_type in settings.reference_types]
+    return result
 
 
 def set_protected_relationships(reference_types):
