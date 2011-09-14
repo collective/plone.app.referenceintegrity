@@ -1,4 +1,4 @@
-import unittest
+import unittest2 as unittest
 
 from Products.ATContentTypes.content.schemata import relatedItemsField
 
@@ -37,9 +37,8 @@ class ReferenceIntegrityHandlersTestCase(unittest.TestCase):
 
         page.setRelatedItems(other_page)
 
-        delete_confirmation = other_page.delete_confirmation
-        self.assertRaises(LinkIntegrityNotificationException,
-                delete_confirmation)
+        with self.assertRaises(LinkIntegrityNotificationException):
+            other_page.delete_confirmation()
 
     def test_do_not_raise_ILinkIntegrityInfo(self):
 
