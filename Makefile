@@ -10,7 +10,7 @@ develop-eggs: bin/python bootstrap.py
 
 bin/buildout: develop-eggs
 
-bin/test: buildout.cfg bin/buildout
+bin/test: buildout.cfg bin/buildout setup.py
 	./bin/buildout -vt 5
 
 .PHONY: test
