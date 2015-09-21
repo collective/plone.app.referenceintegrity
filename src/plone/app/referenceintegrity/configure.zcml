@@ -12,7 +12,7 @@
 
   <subscriber
     for="Products.Archetypes.interfaces.IReference
-         zope.app.container.interfaces.IObjectRemovedEvent" 
+         zope.container.interfaces.IObjectRemovedEvent" 
     handler=".handlers.referenceRemoved" />
 
     <gs:registerProfile
