@@ -1,0 +1,8 @@
+include *.py
+include *.txt
+include Makefile
+include buildout.cfg
+recursive-include docs *.txt
+recursive-include src *.txt
+recursive-include src *.xml
+recursive-include src *.zcml
